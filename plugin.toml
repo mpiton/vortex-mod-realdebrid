@@ -1,0 +1,17 @@
+[plugin]
+name = "vortex-mod-realdebrid"
+version = "1.0.0"
+category = "debrid"
+author = "vortex-community"
+description = "Real-Debrid — unrestrict a covered hoster link with a premium API token"
+license = "GPL-3.0"
+# Vortex 0.3.0 is where the Premium → Debrid → Free cascade lands. On an
+# older host a debrid plugin is just another URL claimant and would outrank
+# the hoster plugin that owns the domain.
+min_vortex_version = "0.3.0"
+
+[capabilities]
+# Every call goes to the Real-Debrid REST API through the host's
+# `http_request` host function; the API token is read via `get_credential`
+# (scoped to this plugin's own service name) and never leaves the sandbox.
+http = true
